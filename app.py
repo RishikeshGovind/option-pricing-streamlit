@@ -8,7 +8,7 @@ from pricing.black_scholes import black_scholes_price
 from pricing.greeks import black_scholes_greeks
 
 # ───────────────────  Page config & CSS  ────────────────────────────────
-st.set_page_config(page_title="Real Options Analyzer", layout="wide")
+st.set_page_config(page_title="Real Options Analyser", layout="wide")
 st.markdown(
     """
     <style>
@@ -34,7 +34,7 @@ with st.sidebar:
         st.stop()
 
 # ───────────────────  Header  ───────────────────────────────────────────
-st.title("📊 Real-World Options Analyzer")
+st.title("📊 Realtime Options Analyser")
 
 try:
     # ---------------- Company & price history --------------------------
