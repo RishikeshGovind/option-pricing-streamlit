@@ -1,0 +1,26 @@
+name: "Stop Application falling asleep"
+
+on:
+  schedule:
+    - cron: '0 10 * * *'   # every day at 00:00 UTC
+
+jobs:
+  make_empty_commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: true
+
+      - name: Configure Git author
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Create an empty commit
+        run: |
+          git commit --allow-empty -m "Daily keep-alive: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+
+      - name: Push the commit back to GitHub
+        run: git push
